@@ -5,12 +5,39 @@ window.handleBtnToggleSplit = (event) =>{
   event.target.closest('.drag-item').classList.toggle("split");
 }
 
+
+window.handleBtnToggleReorganize = (event) =>{
+  const dragList = document.getElementById('dragList');
+
+  let allChildren = Array.from(dragList.children);
+  let items = [];
+
+  allChildren.forEach((item, index) => {
+    if(item.classList.contains('drag-item')) {
+      items.push(item);
+    }
+  });
+
+
+  items.forEach((item, index) => {
+      item.draggable  = !item.draggable;
+   });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     console.log('init');
     const dragList = document.getElementById('dragList');
 
-    let items = Array.from(dragList.children);
+    let allChildren = Array.from(dragList.children);
+    let items = [];
+
+    allChildren.forEach((item, index) => {
+      if(item.classList.contains('drag-item')) {
+        items.push(item);
+      }
+    });
+
 
     items.forEach((item, index) => {
           let body = item.querySelector('.body');
@@ -35,9 +62,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
       console.log(event.target);
 
-      draggedItem = event.target.closest('.drag-item');
+      draggedItem = event.target;
 
-      draggedItemIndex = Array.from(dragList.children).sort((a, b) => parseInt(a.style.order) - parseInt(b.style.order)).indexOf(draggedItem);
+      let allChildren = Array.from(dragList.children);
+      let children = [];
+
+      allChildren.forEach((item, index) => {
+        if(item.classList.contains('drag-item')) {
+          children.push(item);
+        }
+      });
+
+      let items = children.sort((a, b) => parseInt(a.style.order) - parseInt(b.style.order));
+
+
+      draggedItemIndex = items.indexOf(draggedItem);
 
       console.log(draggedItemIndex);
 
@@ -86,8 +125,19 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
 
-        const targetIndex = Array.from(dragList.children).sort((a, b) => parseInt(a.style.order) - parseInt(b.style.order)).indexOf(targetItem);
-        const items = Array.from(dragList.children).sort((a, b) => parseInt(a.style.order) - parseInt(b.style.order));
+        let allChildren = Array.from(dragList.children);
+        let children = [];
+
+        allChildren.forEach((item, index) => {
+          if(item.classList.contains('drag-item')) {
+            children.push(item);
+          }
+        });
+
+        let items = children.sort((a, b) => parseInt(a.style.order) - parseInt(b.style.order));
+
+        const targetIndex = items.indexOf(targetItem);
+
 
         const boundingRect = targetItem.getBoundingClientRect();
         const offset = boundingRect.y + (boundingRect.height / 2);
