@@ -1,0 +1,25 @@
+
+.container{
+    display: flex;
+
+    background-color: darkgray;
+
+    width: 1000px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: center;
+}
+
+.container div{
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    cursor: move;
+    margin: 5px;
+}
