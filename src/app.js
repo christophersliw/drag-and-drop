@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(draggedItemIndex);
 
       event.dataTransfer.effectAllowed = 'move';
-      event.dataTransfer.setData('text/html', draggedItem.innerHTML);
+     // event.dataTransfer.setData('text/html', draggedItem.innerHTML);
       event.target.style.opacity = '0.5';
     }
 
@@ -53,23 +53,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
       event.preventDefault();
       event.dataTransfer.dropEffect = 'move';
-      const targetItem = event.target;
-      if (targetItem !== draggedItem && targetItem.classList.contains('drag-item')) {
-        const boundingRect = targetItem.getBoundingClientRect();
-        const offset = boundingRect.y + (boundingRect.height / 2);
-        if (event.clientY - offset > 0) {
-          targetItem.style.borderBottom = 'solid 5px #000';
-          targetItem.style.borderTop = '';
-        } else {
-          targetItem.style.borderTop = 'solid 5px #000';
-          targetItem.style.borderBottom = '';
-        }
+      // const targetItem = event.target;
+      // if (targetItem !== draggedItem && targetItem.classList.contains('drag-item')) {
+      //   const boundingRect = targetItem.getBoundingClientRect();
+      //   const offset = boundingRect.y + (boundingRect.height / 2);
+      //   if (event.clientY - offset > 0) {
+      //     targetItem.style.borderBottom = 'solid 5px #000';
+      //     targetItem.style.borderTop = '';
+      //   } else {
+      //     targetItem.style.borderTop = 'solid 5px #000';
+      //     targetItem.style.borderBottom = '';
+      //   }
 
-      }
-      else{
-          targetItem.style.borderBottom = '';
-          targetItem.style.borderTop = '';
-      }
+      // }
+      // else{
+      //     targetItem.style.borderBottom = '';
+      //     targetItem.style.borderTop = '';
+      // }
     }
 
 
