@@ -1,34 +1,41 @@
 import "./main.css";
 
 
+window.handleBtnToggleSplit = (event) =>{
+  event.target.closest('.drag-item').classList.toggle("split");
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
     console.log('init');
     const dragList = document.getElementById('dragList');
 
     let items = Array.from(dragList.children);
+
     items.forEach((item, index) => {
-            item.innerHTML =  item.style.order;
-
-            });
-
+          let body = item.querySelector('.body');
+          body.innerHTML = item.style.order;
+     });
 
 
      let draggedItem = null;
      let draggedItemIndex = null;
      
 
-        // Add event listeners for drag and drop events
-        dragList.addEventListener('dragstart', handleDragStart);
-         dragList.addEventListener('dragover', handleDragOver);
-         dragList.addEventListener('drop', handleDrop);
+    dragList.addEventListener('dragstart', handleDragStart);
+    dragList.addEventListener('dragover', handleDragOver);
+    dragList.addEventListener('drop', handleDrop);
 
-          // Drag start event handler
+
+  
+
     function handleDragStart(event) {
 
-        console.log('drag start');
+      console.log('drag start');
 
-      draggedItem = event.target;
+      console.log(event.target);
+
+      draggedItem = event.target.closest('.drag-item');
 
       draggedItemIndex = Array.from(dragList.children).sort((a, b) => parseInt(a.style.order) - parseInt(b.style.order)).indexOf(draggedItem);
 
@@ -39,10 +46,10 @@ document.addEventListener('DOMContentLoaded', () => {
       event.target.style.opacity = '0.5';
     }
 
-      // Drag over event handler
-      function handleDragOver(event) {
 
-console.log('drag over!!!');
+    function handleDragOver(event) {
+
+      console.log('drag over!!!');
 
       event.preventDefault();
       event.dataTransfer.dropEffect = 'move';
@@ -58,18 +65,14 @@ console.log('drag over!!!');
           targetItem.style.borderBottom = '';
         }
 
-//console.log('event.clientY', event.clientY);
-//console.log('offset', offset);
-
       }
       else{
-      //    console.log('not dragged item', targetItem);
           targetItem.style.borderBottom = '';
           targetItem.style.borderTop = '';
       }
     }
 
-    // Drop event handler
+
     function handleDrop(event) {
         console.log('handle drop');
 
@@ -85,13 +88,6 @@ console.log('drag over!!!');
 
         const targetIndex = Array.from(dragList.children).sort((a, b) => parseInt(a.style.order) - parseInt(b.style.order)).indexOf(targetItem);
         const items = Array.from(dragList.children).sort((a, b) => parseInt(a.style.order) - parseInt(b.style.order));
-
-
-        items.forEach((item, index) => {
-                
-             //      console.log(item.style.order);
-                
-            });
 
         const boundingRect = targetItem.getBoundingClientRect();
         const offset = boundingRect.y + (boundingRect.height / 2);
@@ -150,10 +146,12 @@ console.log('drag over!!!');
        targetItem.style.borderBottom = '';
         draggedItem = null;
 
-        items.forEach((item, index) => {
-            item.innerHTML = item.style.order;
 
-            });
+    items.forEach((item, index) => {
+          let body = item.querySelector('.body');
+          body.innerHTML = item.style.order;
+     });
+
 
     //   event.preventDefault();
     //   const targetItem = event.target;
