@@ -1,4 +1,4 @@
-.container{
+#dragList{
     display: flex;
 
     background-color: darkgray;
@@ -14,9 +14,7 @@
     justify-content: center;
 }
 
-
-
-.container div.drag-item{
+#dragList div.drag-item{
     color: 000;
     font-size: 2rem;
     text-align: center;
@@ -24,19 +22,13 @@
     border: 2px solid black;
     background-color: aqua;
     flex-basis: 100%;
-    cursor: move;
 }
 
-.container div.drag-item.split{
+#dragList div.drag-item.split{
     flex-basis: calc(50% - 20px);
 }
 
-
-.container > div:hover{
-    opacity: 0.5;
-}
-
-.container  div.header{
+#dragList  div.header{
 
     width: 100%;
     height: 50px;
@@ -47,7 +39,41 @@
 
 }
 
-.container div.body{
+#dragList div.body{
     width: 100%;
     border: 1px solid black;
 }
+
+
+
+/*start default state btn*/
+#dragList #startReorganize{
+    display: inline-block;
+}
+
+#dragList #stopReorganize, #dragList #cancelReorganize, #dragList .splitBtn{
+    display: none;
+}
+
+
+/*end rdefault state btn*/
+
+/*start reorder state btn*/
+#dragList.reorder #startReorganize{
+    display: none;
+}
+
+#dragList.reorder #stopReorganize, #dragList.reorder #cancelReorganize, #dragList.reorder .splitBtn{
+    display: inline-block;
+}
+
+/*end reorder state btn*/
+
+#dragList.reorder div.drag-item{
+    cursor: move;
+}
+
+#dragList.reorder div.drag-item:hover{
+    opacity: 0.5;
+}
+

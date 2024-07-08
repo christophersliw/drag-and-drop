@@ -8,44 +8,55 @@
     <div class="container" id="dragList">
 
       <div>
-        <button onclick="window.handleBtnToggleReorganize(event)">Move</button>
+        <button id="startReorganize" onclick="window.handleBtnToggleReorganize(event)">start  - reorganize</button>
+        <button id="stopReorganize" onclick="window.handleBtnToggleReorganize(event)">stop  - reorganize</button>
+        <button id="cancelReorganize" onclick="window.handleBtnCancelReorganize(event)" >cancel  - reorganize</button>
+        <select id="roleList" onchange="window.handleRoleChange(event)">
+          <option value="1" >role 1</option>
+          <option value="2" selected>role 2</option>
+          <option value="3">role 3</option>
+        </select>
       </div>
 
 
-        <div class="drag-item 0"  style="background-color: gold;  order: 0; " draggable="true">
-          <div class="header"><button onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item 0" data-symbol="a"  style="background-color: gold; " >
+          <div class="header">a
+            <button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button>
+            <button class="deleteBtn" >x</button>
+            <button class="restoreBtn" >v</button>
+          </div>  
           <div class="body"></div>
         </div>
-        <div class="drag-item 1" style="order: 1;"  draggable="true">
-          <div class="header"><button onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item 1" data-symbol="b"   >
+          <div class="header">b<button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button></div>  
           <div class="body"></div>
         </div>
-        <div class="drag-item 2" style=" order: 2;"  draggable="true">
-          <div class="header"><button onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item 2" data-symbol="c"   >
+          <div class="header">c<button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button></div>  
           <div class="body"></div>
         </div>
-        <div class="drag-item 3" style=" order: 3;"  draggable="true">
-          <div class="header"><button onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item 3" data-symbol="d"  >
+          <div class="header">d<button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button></div>  
           <div class="body"></div>
         </div>
-        <div class="drag-item 4" style="background-color: green; order: 4;"  draggable="true">
-          <div class="header"><button onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item 4" data-symbol="e"  style="background-color: green;" >
+          <div class="header">e<button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button></div>  
           <div class="body"></div>
         </div>
-        <div class="drag-item 5" style="   order: 1; order: 5;" draggable="true">
-          <div class="header"><button onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item 5" data-symbol="f"   >
+          <div class="header">f<button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button></div>  
           <div class="body"></div>
         </div>
-        <div class="drag-item 6" style=" flex-basis: 100%;order: 6;" draggable="true">
-          <div class="header"><button onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item 6" data-symbol="g"   >
+          <div class="header">g<button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button></div>  
           <div class="body"></div>
         </div>
-        <div class="drag-item 7" style="  order: 7;" draggable="true">
-          <div class="header"><button onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item 7" data-symbol="h"   >
+          <div class="header">h<button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button></div>  
           <div class="body"></div>
         </div>
-        <div class="drag-item 8" style="background-color: red;order: 8;" draggable="true">
-          <div class="header"><button onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item 8" data-symbol="i"  style="background-color: red;" >
+          <div class="header">i<button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button></div>  
           <div class="body"></div>
         </div>
 
