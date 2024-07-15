@@ -3,7 +3,20 @@ import "./main.css";
 
 
 window.handleBtnToggleSplit = (event) =>{
-  event.target.closest('.drag-item').classList.toggle("split");
+  event.target.closest('.drag-item').classList.toggle("split-size");
+  event.target.closest('.drag-item').classList.toggle("full-size");
+}
+
+window.handleBtnToggleDelete= (event) =>{
+  event.target.closest('.drag-item').classList.toggle("deleted");
+  event.target.closest('.drag-item').classList.toggle("active");
+
+    if(dragList.classList.contains("deleted")){
+      
+    }
+    else{
+      
+    }
 }
 
 
@@ -32,6 +45,7 @@ window.handleRoleChange = (event) =>{
 window.handleBtnToggleReorganize = (event) =>{
   const dragList = document.getElementById('dragList');
 
+  dragList.parentElement.classList.toggle("reorder");
   dragList.classList.toggle("reorder");
 
 
@@ -66,6 +80,7 @@ window.handleBtnToggleReorganize = (event) =>{
 window.handleBtnCancelReorganize = (event) =>{
   const dragList = document.getElementById('dragList');
 
+  dragList.parentElement.classList.remove("reorder");
   dragList.classList.remove("reorder");
 
 let items = getAllItemsToDrag();
@@ -399,10 +414,12 @@ function reorder(roleId, domElements, allDataElements){
         item.style.order = obj.order;
 
         if(obj.split){
-          item.classList.add('split')
+          item.classList.add('split-size');
+          item.classList.remove('full-size');
         }
         else{
-          item.classList.remove('split')
+          item.classList.remove('split-size')
+          item.classList.add('full-size')
         }
         
       }

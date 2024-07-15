@@ -5,11 +5,10 @@
 
 <body>
 
-    <div class="container" id="dragList">
-
+    <div id="panelCandidateContainer">
       <div>
         <button id="startReorganize" onclick="window.handleBtnToggleReorganize(event)">start  - reorganize</button>
-        <button id="stopReorganize" onclick="window.handleBtnToggleReorganize(event)">stop  - reorganize</button>
+        <button id="saveReorganize" onclick="window.handleBtnToggleReorganize(event)">save  - reorganize</button>
         <button id="cancelReorganize" onclick="window.handleBtnCancelReorganize(event)" >cancel  - reorganize</button>
         <select id="roleList" onchange="window.handleRoleChange(event)">
           <option value="1" >role 1</option>
@@ -18,47 +17,92 @@
         </select>
       </div>
 
-
-        <div class="drag-item 0" data-symbol="a"  style="background-color: gold; " >
+      <div  id="dragList">
+        <div class="drag-item active" data-symbol="a"  style="background-color: gold; " >
           <div class="header">a
-            <button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button>
-            <button class="deleteBtn" >x</button>
-            <button class="restoreBtn" >v</button>
+            <button class="splitBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Split</button>
+            <button class="combineBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Combine</button>
+            <button class="deleteBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Delete</button>
+            <button class="restoreBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Restore</button>
           </div>  
           <div class="body"></div>
         </div>
-        <div class="drag-item 1" data-symbol="b"   >
-          <div class="header">b<button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item active" data-symbol="b"   >
+          <div class="header">b
+            <button class="splitBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Split</button>
+            <button class="combineBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Combine</button>
+            <button class="deleteBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Delete</button>
+            <button class="restoreBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Restore</button>
+          </div>  
           <div class="body"></div>
         </div>
-        <div class="drag-item 2" data-symbol="c"   >
-          <div class="header">c<button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item active" data-symbol="c"   >
+          <div class="header">c
+            <button class="splitBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Split</button>
+            <button class="combineBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Combine</button>
+            <button class="deleteBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Delete</button>
+            <button class="restoreBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Restore</button>
+          </div>  
           <div class="body"></div>
         </div>
-        <div class="drag-item 3" data-symbol="d"  >
-          <div class="header">d<button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item active" data-symbol="d"  >
+          <div class="header">d
+            <button class="splitBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Split</button>
+            <button class="combineBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Combine</button>
+            <button class="deleteBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Delete</button>
+            <button class="restoreBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Restore</button>
+          </div>  
           <div class="body"></div>
         </div>
-        <div class="drag-item 4" data-symbol="e"  style="background-color: green;" >
-          <div class="header">e<button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item active" data-symbol="e"  style="background-color: green;" >
+          <div class="header">e
+            <button class="splitBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Split</button>
+            <button class="combineBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Combine</button>
+            <button class="deleteBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Delete</button>
+            <button class="restoreBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Restore</button>
+          </div>  
           <div class="body"></div>
         </div>
-        <div class="drag-item 5" data-symbol="f"   >
-          <div class="header">f<button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item active" data-symbol="f"   >
+          <div class="header">f
+            <button class="splitBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Split</button>
+            <button class="combineBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Combine</button>
+            <button class="deleteBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Delete</button>
+            <button class="restoreBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Restore</button>
+          </div>  
           <div class="body"></div>
         </div>
-        <div class="drag-item 6" data-symbol="g"   >
-          <div class="header">g<button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item active" data-symbol="g"   >
+          <div class="header">g
+            <button class="splitBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Split</button>
+            <button class="combineBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Combine</button>
+            <button class="deleteBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Delete</button>
+            <button class="restoreBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Restore</button>
+          </div>  
           <div class="body"></div>
         </div>
-        <div class="drag-item 7" data-symbol="h"   >
-          <div class="header">h<button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item active" data-symbol="h"   >
+          <div class="header">h
+            <button class="splitBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Split</button>
+            <button class="combineBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Combine</button>
+            <button class="deleteBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Delete</button>
+            <button class="restoreBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Restore</button>
+          </div>  
           <div class="body"></div>
         </div>
-        <div class="drag-item 8" data-symbol="i"  style="background-color: red;" >
-          <div class="header">i<button class="splitBtn" onclick="window.handleBtnToggleSplit(event)">|</button></div>  
+        <div class="drag-item active" data-symbol="i"  style="background-color: red;" >
+          <div class="header">i
+            <button class="splitBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Split</button>
+            <button class="combineBtn manageBtn" onclick="window.handleBtnToggleSplit(event)">Combine</button>
+            <button class="deleteBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Delete</button>
+            <button class="restoreBtn manageBtn" onclick="window.handleBtnToggleDelete(event)" >Restore</button>
+          </div>  
           <div class="body"></div>
         </div>
+      </div>
+
+
+      
 
 
 

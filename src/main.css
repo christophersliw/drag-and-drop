@@ -24,7 +24,7 @@
     flex-basis: 100%;
 }
 
-#dragList div.drag-item.split{
+#dragList div.drag-item.split-size{
     flex-basis: calc(50% - 20px);
 }
 
@@ -47,23 +47,30 @@
 
 
 /*start default state btn*/
-#dragList #startReorganize{
+#panelCandidateContainer  #startReorganize{
     display: inline-block;
 }
 
-#dragList #stopReorganize, #dragList #cancelReorganize, #dragList .splitBtn{
+#panelCandidateContainer #saveReorganize, #panelCandidateContainer #cancelReorganize{
     display: none;
 }
 
+#dragList .manageBtn{
+    display: none;
+}
 
 /*end rdefault state btn*/
 
 /*start reorder state btn*/
-#dragList.reorder #startReorganize{
+#panelCandidateContainer.reorder #startReorganize{
     display: none;
 }
 
-#dragList.reorder #stopReorganize, #dragList.reorder #cancelReorganize, #dragList.reorder .splitBtn{
+#panelCandidateContainer.reorder #saveReorganize, #panelCandidateContainer.reorder #cancelReorganize{
+    display: inline-block;
+}
+
+#dragList.reorder .manageBtn{
     display: inline-block;
 }
 
@@ -77,3 +84,42 @@
     opacity: 0.5;
 }
 
+
+#dragList.reorder .full-size .combineBtn
+{
+    display: none;
+}
+
+#dragList.reorder .full-size .splitBtn
+{
+    display: inline-block;
+}
+
+
+#dragList.reorder .split-size .combineBtn
+{
+    display: inline-block;
+}
+
+#dragList.reorder .split-size .splitBtn
+{
+    display: none;
+}
+
+
+
+#dragList .drag-item.deleted .deleteBtn{
+    display: none;
+}
+
+#dragList .drag-item.deleted .restoreBtn{
+    display: inline-block;
+}
+
+#dragList .drag-item.active .deleteBtn{
+    display: inline-block;
+}
+
+#dragList .drag-item.active .restoreBtn{
+    display: none;
+}
