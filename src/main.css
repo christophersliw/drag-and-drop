@@ -1,3 +1,121 @@
+@layer reorganize-layer, default-layer, deleted-layer;
+
+@layer default-layer{
+    #panelCandidateContainer .hide-element{
+        display: none;
+    }
+
+    #panelCandidateContainer .show-element{
+        display: inline-block;
+    }
+}
+
+@layer reorganize-layer{
+    #panelCandidateContainer .split-size .splitBtn{
+        display: none;
+    }
+    
+    #panelCandidateContainer .full-size .splitBtn{
+        display: inline-block;
+    }
+    
+    #panelCandidateContainer .split-size .combineBtn{
+        display: inline-block;
+    }
+    
+    #panelCandidateContainer .full-size .combineBtn{
+        display: none;
+    }
+
+
+    #panelCandidateContainer .deleted .deleteBtn{
+        display: none;
+    }
+    
+    #panelCandidateContainer .active .deleteBtn{
+        display: inline-block;
+    }
+    
+    #panelCandidateContainer .deleted .restoreBtn{
+        display: inline-block;
+    }
+    
+    #panelCandidateContainer .active .restoreBtn{
+        display: none;
+    }
+}
+
+
+@layer deleted-layer{
+    #panelCandidateContainer .deleted .splitBtn, #panelCandidateContainer .deleted .combineBtn{
+        display: none;
+
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+#deletedList{
+    display: flex;
+
+    background-color: grey;
+    margin-top: 40px;
+
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+
+
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+}
+
+#deletedList div.drag-item{
+    color: 000;
+    font-size: 2rem;
+    text-align: center;
+    margin: 5px;
+    border: 2px solid black;
+    background-color: aqua;
+    flex-basis: 100%;
+}
+
+
+
+#deletedList div.drag-item.split-size{
+    flex-basis: calc(50% - 20px);
+}
+
+#deletedList  div.header{
+
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid black;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+#deletedList div.body{
+    width: 100%;
+    border: 1px solid black;
+}
+
+
+
+
 #dragList{
     display: flex;
 
@@ -46,22 +164,36 @@
 
 
 
-/*start default state btn*/
+#dragList.reorder div.drag-item{
+    cursor: move;
+}
+
+#dragList.reorder div.drag-item:hover{
+    opacity: 0.5;
+}
+
+
+
+
+
+#dragList .deleted{
+   opacity: 0.5;
+}
+
+
+
+
+/* 
 #panelCandidateContainer  #startReorganize{
     display: inline-block;
 }
 
 #panelCandidateContainer #saveReorganize, #panelCandidateContainer #cancelReorganize{
     display: none;
-}
+} 
 
-#dragList .manageBtn{
-    display: none;
-}
 
-/*end rdefault state btn*/
 
-/*start reorder state btn*/
 #panelCandidateContainer.reorder #startReorganize{
     display: none;
 }
@@ -72,17 +204,10 @@
 
 #dragList.reorder .manageBtn{
     display: inline-block;
-}
+} 
 
-/*end reorder state btn*/
 
-#dragList.reorder div.drag-item{
-    cursor: move;
-}
 
-#dragList.reorder div.drag-item:hover{
-    opacity: 0.5;
-}
 
 
 #dragList.reorder .full-size .combineBtn
@@ -107,7 +232,6 @@
 }
 
 
-
 #dragList .drag-item.deleted .deleteBtn{
     display: none;
 }
@@ -123,3 +247,7 @@
 #dragList .drag-item.active .restoreBtn{
     display: none;
 }
+
+#dragList .drag-item button.manageBtn{
+    display: none;
+} */
