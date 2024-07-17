@@ -1,84 +1,63 @@
-@layer reorganize-layer, default-layer, deleted-layer;
+@layer default-layer, reorganize-layer,  deleted-layer;
 
 @layer default-layer{
     #panelCandidateContainer .hide-element{
         display: none;
     }
-
-    #panelCandidateContainer .show-element{
-        display: inline-block;
-    }
 }
 
 @layer reorganize-layer{
-    #panelCandidateContainer .split-size .splitBtn{
+    #panelCandidateContainer .reorder .split-size .splitBtn{
         display: none;
     }
     
-    #panelCandidateContainer .full-size .splitBtn{
+    #panelCandidateContainer .reorder .full-size .splitBtn{
         display: inline-block;
     }
     
-    #panelCandidateContainer .split-size .combineBtn{
+    #panelCandidateContainer .reorder .split-size .combineBtn{
         display: inline-block;
     }
     
-    #panelCandidateContainer .full-size .combineBtn{
+    #panelCandidateContainer .reorder .full-size .combineBtn{
         display: none;
     }
 
 
-    #panelCandidateContainer .deleted .deleteBtn{
+    #panelCandidateContainer .reorder .deleted .deleteBtn{
         display: none;
     }
     
-    #panelCandidateContainer .active .deleteBtn{
+    #panelCandidateContainer .reorder .active .deleteBtn{
         display: inline-block;
     }
     
-    #panelCandidateContainer .deleted .restoreBtn{
+    #panelCandidateContainer .reorder .deleted .restoreBtn{
         display: inline-block;
     }
     
-    #panelCandidateContainer .active .restoreBtn{
+    #panelCandidateContainer .reorder .active .restoreBtn{
         display: none;
     }
 }
-
 
 @layer deleted-layer{
-    #panelCandidateContainer .deleted .splitBtn, #panelCandidateContainer .deleted .combineBtn{
+    #panelCandidateContainer .deleted .splitBtn, #panelCandidateContainer .deleted .combineBtn,  #panelCandidateContainer  .deleted .deleteBtn{
         display: none;
-
     }
-
 }
-
-
-
-
-
-
-
-
 
 
 #deletedList{
     display: flex;
-
     background-color: grey;
     margin-top: 40px;
-
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
-
-
     flex-direction: row;
     flex-wrap: wrap;
-
     justify-content: center;
-
 }
 
 #deletedList div.drag-item{
@@ -91,21 +70,17 @@
     flex-basis: 100%;
 }
 
-
-
 #deletedList div.drag-item.split-size{
     flex-basis: calc(50% - 20px);
 }
 
 #deletedList  div.header{
-
     width: 100%;
     height: 50px;
     line-height: 50px;
     border: 1px solid black;
     display: flex;
     justify-content: flex-end;
-
 }
 
 #deletedList div.body{
@@ -113,22 +88,14 @@
     border: 1px solid black;
 }
 
-
-
-
 #dragList{
     display: flex;
-
     background-color: darkgray;
-
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
-
-
     flex-direction: row;
     flex-wrap: wrap;
-
     justify-content: center;
 }
 
@@ -154,15 +121,12 @@
     border: 1px solid black;
     display: flex;
     justify-content: flex-end;
-
 }
 
 #dragList div.body{
     width: 100%;
     border: 1px solid black;
 }
-
-
 
 #dragList.reorder div.drag-item{
     cursor: move;
@@ -172,82 +136,6 @@
     opacity: 0.5;
 }
 
-
-
-
-
 #dragList .deleted{
    opacity: 0.5;
 }
-
-
-
-
-/* 
-#panelCandidateContainer  #startReorganize{
-    display: inline-block;
-}
-
-#panelCandidateContainer #saveReorganize, #panelCandidateContainer #cancelReorganize{
-    display: none;
-} 
-
-
-
-#panelCandidateContainer.reorder #startReorganize{
-    display: none;
-}
-
-#panelCandidateContainer.reorder #saveReorganize, #panelCandidateContainer.reorder #cancelReorganize{
-    display: inline-block;
-}
-
-#dragList.reorder .manageBtn{
-    display: inline-block;
-} 
-
-
-
-
-
-#dragList.reorder .full-size .combineBtn
-{
-    display: none;
-}
-
-#dragList.reorder .full-size .splitBtn
-{
-    display: inline-block;
-}
-
-
-#dragList.reorder .split-size .combineBtn
-{
-    display: inline-block;
-}
-
-#dragList.reorder .split-size .splitBtn
-{
-    display: none;
-}
-
-
-#dragList .drag-item.deleted .deleteBtn{
-    display: none;
-}
-
-#dragList .drag-item.deleted .restoreBtn{
-    display: inline-block;
-}
-
-#dragList .drag-item.active .deleteBtn{
-    display: inline-block;
-}
-
-#dragList .drag-item.active .restoreBtn{
-    display: none;
-}
-
-#dragList .drag-item button.manageBtn{
-    display: none;
-} */
