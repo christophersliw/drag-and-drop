@@ -7,7 +7,7 @@ window.handleBtnToggleSplit = (event) =>{
 
 window.handleBtnToggleDelete= (event) =>{
   event.target.closest('.drag-item').classList.toggle("deleted");
-  event.target.closest('.drag-item').classList.toggle("active");
+  //event.target.closest('.drag-item').classList.toggle("active");
 
   let deletedList = document.getElementById('deletedList');
   let dragList = document.getElementById('dragList');
@@ -75,10 +75,10 @@ window.handleRoleChange = (event) =>{
 
 window.handleBtnToggleReorganize = (event) =>{
   const dragList = document.getElementById('dragList');
+  const deletedList = document.getElementById('deletedList');
 
   dragList.parentElement.classList.toggle("reorder");
   dragList.classList.toggle("reorder");
-
 
   document.getElementById('saveReorganize').classList.remove("hide-element");
   document.getElementById('cancelReorganize').classList.remove("hide-element");
@@ -88,7 +88,6 @@ window.handleBtnToggleReorganize = (event) =>{
 
   btnList.forEach((btn, index) => {
     btn.classList.remove("hide-element");
-
   });
 
   let items = getAllItemsToDrag(dragList);
@@ -130,7 +129,7 @@ window.handleBtnToggleReorganize = (event) =>{
         dataToSave.push({symbol:symbol,split, isDeleted:false});
       });
 
-      let allDeletedChildrenToSave = Array.from(dragList.children);
+      let allDeletedChildrenToSave = Array.from(deletedList.children);
       let childrenDeleted = [];
     
       allDeletedChildrenToSave.forEach((item, index) => {
@@ -411,7 +410,6 @@ function clearDeletedList(){
     if(item.classList.contains('drag-item')) {
       
       item.classList.remove('deleted');
-      item.classList.add('active');
       dragList.appendChild(item);
     }
   });
@@ -431,14 +429,10 @@ function setDeletedItems(roleId, domElements, allDataElements){
 
       if(obj.isDeleted){
         item.classList.add('deleted');
-        item.classList.remove('active');
-
         deletedList.appendChild(item);
       
       }
-
     }
-    
 
   });
 }

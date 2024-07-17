@@ -1,12 +1,27 @@
-@layer default-layer, reorganize-layer,  deleted-layer;
+@layer default-layer, reorganize-layer, deleted-layer;
 
 @layer default-layer{
-    #panelCandidateContainer .hide-element{
+    #panelCandidateContainer .splitBtn,  
+    #panelCandidateContainer .combineBtn, 
+    #panelCandidateContainer .deleteBtn,
+    #panelCandidateContainer .restoreBtn,
+    #panelCandidateContainer #saveReorganize,
+    #panelCandidateContainer #cancelReorganize{
         display: none;
     }
 }
 
 @layer reorganize-layer{
+
+    #panelCandidateContainer.reorder #saveReorganize, #panelCandidateContainer.reorder #cancelReorganize{
+        display: inline-block;
+    }
+
+    #panelCandidateContainer.reorder #startReorganize{
+        display: none;
+
+    }
+
     #panelCandidateContainer .reorder .split-size .splitBtn{
         display: none;
     }
@@ -22,7 +37,6 @@
     #panelCandidateContainer .reorder .full-size .combineBtn{
         display: none;
     }
-
 
     #panelCandidateContainer .reorder .deleted .deleteBtn{
         display: none;
@@ -42,11 +56,14 @@
 }
 
 @layer deleted-layer{
-    #panelCandidateContainer .deleted .splitBtn, #panelCandidateContainer .deleted .combineBtn,  #panelCandidateContainer  .deleted .deleteBtn{
+    #panelCandidateContainer.reorder  #deletedList .splitBtn, #panelCandidateContainer #deletedList .combineBtn,  #panelCandidateContainer  #deletedList .deleteBtn{
         display: none;
     }
+    
+    #panelCandidateContainer.reorder #deletedList .restoreBtn{
+        display: inline-block;
+    }
 }
-
 
 #deletedList{
     display: flex;
